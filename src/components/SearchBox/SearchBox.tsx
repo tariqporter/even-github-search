@@ -24,7 +24,8 @@ export default (props: any) => {
   const { onChange, onCheckChange } = props;  //dispatch
 
   const searchAndGo = () => {
-    const license = (licenses.find(x => x.id === licenseValue) as any).name;
+    let license = licenses.find(x => x.id === licenseValue) as any;
+    license = !!license ? license.name : '';
     const urlState = { searchValue, starValue, licenseValue, includeForked, page: 1 };
     const stringified = queryString.stringify(urlState);
     history.push(`/?${stringified}`);
@@ -85,6 +86,5 @@ export default (props: any) => {
       </Grid>
       <Grid item sm={4} md={5} className={classes.item} />
     </Grid>
-
   );
 }

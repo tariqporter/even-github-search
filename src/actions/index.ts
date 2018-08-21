@@ -21,8 +21,10 @@ export const searchGitHubAction = (obj: any) => {
 			new Promise((resolve, reject) => {
 				setTimeout(() => resolve(x), 1000);
 			})
+			.then(y => { console.log(y); return y })
 			.then((y: any) => dispatch(updateSearchResultsAction(y.items, y.total_count, page)))
 			.then(y => dispatch(searchResultsLoadingAction(false)))
+			
 		})
 		.catch(err => console.log(err));
 	}

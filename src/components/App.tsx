@@ -5,6 +5,7 @@ import { onChangeAction, searchGitHubAction } from '../actions';
 import SearchBox from './SearchBox/SearchBox.Container';
 import Results from './Results/Results.Container';
 import Header from './Header/Header.Container';
+import Pagination from './Pagination/Pagination.Container';
 
 const styles = (theme: any) => ({
 	container: {
@@ -39,6 +40,12 @@ export class App extends React.Component<any, any> {
 						<Grid item sm={undefined} md={2} />
 						<Grid item sm={12} md={8}>
 							<Results />
+						</Grid>
+					</Grid>
+					<Grid container className={classes.container}>
+						<Grid item sm={undefined} md={2} />
+						<Grid item sm={12} md={8}>
+							<Pagination {...{match, location, history}} />
 						</Grid>
 					</Grid>
 				</Grid>
